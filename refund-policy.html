@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refund Policy - PS Technologies</title>
+    <meta name="description" content="Refund Policy for PS Technologies. Understand our refund terms, cancellation process, and money-back guarantee.">
+    <link rel="stylesheet" href="../design-system/variables.css">
+    <style>
+        :root {
+            --space-16: 16px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --space-40: 40px;
+            --space-48: 48px;
+            --space-64: 64px;
+            --space-96: 96px;
+            
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            
+            --shadow-soft: 0 2px 8px rgba(15, 23, 42, 0.08);
+            
+            --font-display: 56px;
+            --font-h1: 48px;
+            --font-h2: 36px;
+            --font-h3: 28px;
+            --font-h4: 22px;
+            --font-body: 16px;
+            --font-label: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background: var(--theme-bg-canvas, #FFFFFF);
+            color: var(--theme-text-primary, #0F172A);
+        }
+
+        /* Header */
+        header {
+            background: var(--theme-bg-card, #FFFFFF);
+            border-bottom: 1px solid var(--theme-border-subtle, #E2E8F0);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-soft);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--space-16) var(--space-40);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--theme-text-primary, #0F172A);
+        }
+
+        nav a {
+            color: var(--theme-text-secondary, #64748B);
+            text-decoration: none;
+            padding: var(--space-8) var(--space-16);
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        nav a:hover {
+            background: var(--theme-bg-soft, #F8FAFC);
+            color: var(--theme-text-primary, #0F172A);
+        }
+
+        /* Main Content */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: var(--space-64) var(--space-40);
+        }
+
+        .page-header {
+            margin-bottom: var(--space-64);
+            text-align: center;
+        }
+
+        .page-header h1 {
+            font-size: var(--font-h1);
+            font-weight: 600;
+            margin-bottom: var(--space-16);
+            line-height: 1.2;
+        }
+
+        .page-header p {
+            font-size: var(--font-body);
+            color: var(--theme-text-secondary, #64748B);
+        }
+
+        .last-updated {
+            font-size: 14px;
+            color: var(--theme-text-muted, #94A3B8);
+            margin-top: var(--space-16);
+        }
+
+        /* Content Sections */
+        section {
+            margin-bottom: var(--space-64);
+        }
+
+        h2 {
+            font-size: var(--font-h2);
+            font-weight: 600;
+            margin: var(--space-40) 0 var(--space-24);
+            line-height: 1.3;
+        }
+
+        h3 {
+            font-size: var(--font-h3);
+            font-weight: 500;
+            margin: var(--space-32) 0 var(--space-16);
+            line-height: 1.35;
+        }
+
+        h4 {
+            font-size: var(--font-h4);
+            font-weight: 500;
+            margin: var(--space-24) 0 var(--space-12);
+        }
+
+        p {
+            margin-bottom: var(--space-16);
+            line-height: 1.8;
+            color: var(--theme-text-secondary, #475569);
+        }
+
+        ul, ol {
+            margin: var(--space-16) 0 var(--space-16) var(--space-24);
+        }
+
+        li {
+            margin-bottom: var(--space-12);
+            color: var(--theme-text-secondary, #475569);
+            line-height: 1.8;
+        }
+
+        strong {
+            color: var(--theme-text-primary, #0F172A);
+            font-weight: 600;
+        }
+
+        /* Highlighted Box */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+            border-left: 4px solid #4F46E5;
+            padding: var(--space-24);
+            border-radius: var(--radius-md);
+            margin: var(--space-32) 0;
+        }
+
+        .highlight-box h4 {
+            margin-top: 0;
+            color: #4F46E5;
+        }
+
+        .success-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, rgba(34, 197, 94, 0.02) 100%);
+            border-left: 4px solid #22C55E;
+            padding: var(--space-24);
+            border-radius: var(--radius-md);
+            margin: var(--space-32) 0;
+        }
+
+        .success-box h4 {
+            margin-top: 0;
+            color: #22C55E;
+        }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.05) 0%, rgba(245, 158, 11, 0.02) 100%);
+            border-left: 4px solid #F59E0B;
+            padding: var(--space-24);
+            border-radius: var(--radius-md);
+            margin: var(--space-32) 0;
+        }
+
+        .warning-box h4 {
+            margin-top: 0;
+            color: #F59E0B;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: var(--space-32) 0;
+            background: var(--theme-bg-card, #FFFFFF);
+            border: 1px solid var(--theme-border-subtle, #E2E8F0);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        th {
+            background: var(--theme-bg-soft, #F8FAFC);
+            padding: var(--space-16) var(--space-24);
+            text-align: left;
+            font-weight: 600;
+            color: var(--theme-text-primary, #0F172A);
+            border-bottom: 1px solid var(--theme-border-subtle, #E2E8F0);
+        }
+
+        td {
+            padding: var(--space-16) var(--space-24);
+            border-bottom: 1px solid var(--theme-border-subtle, #E2E8F0);
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--theme-bg-soft, #F8FAFC);
+            border: 1px solid var(--theme-border-subtle, #E2E8F0);
+            border-radius: var(--radius-lg);
+            padding: var(--space-32);
+            margin-bottom: var(--space-64);
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            margin-bottom: var(--space-24);
+        }
+
+        .toc ul {
+            list-style: none;
+            margin: 0;
+        }
+
+        .toc li {
+            margin-bottom: var(--space-12);
+        }
+
+        .toc a {
+            color: #4F46E5;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .toc a:hover {
+            color: #06B6D4;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--theme-bg-card, #FFFFFF);
+            border-top: 1px solid var(--theme-border-subtle, #E2E8F0);
+            padding: var(--space-48) var(--space-40);
+            text-align: center;
+            color: var(--theme-text-muted, #94A3B8);
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            main {
+                padding: var(--space-32) var(--space-24);
+            }
+
+            nav {
+                flex-direction: column;
+                gap: var(--space-16);
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .page-header h1 {
+                font-size: 36px;
+            }
+
+            table {
+                font-size: 14px;
+            }
+
+            th, td {
+                padding: var(--space-12) var(--space-16);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">PS Technologies</div>
+            <div>
+                <a href="/">Home</a>
+                <a href="/terms">Terms</a>
+                <a href="/privacy">Privacy</a>
+                <a href="/refund">Refund Policy</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="page-header">
+            <h1>Refund Policy</h1>
+            <p>Your satisfaction is our priority. Learn about our refund and cancellation terms.</p>
+            <p class="last-updated">Last updated: December 9, 2025</p>
+        </div>
+
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3>Quick Navigation</h3>
+            <ul>
+                <li><a href="#money-back-guarantee">Money-Back Guarantee</a></li>
+                <li><a href="#refund-eligibility">Refund Eligibility</a></li>
+                <li><a href="#refund-process">Refund Process</a></li>
+                <li><a href="#cancellation">Cancellation Policy</a></li>
+                <li><a href="#non-refundable">Non-Refundable Items</a></li>
+                <li><a href="#partial-refunds">Partial Refunds</a></li>
+                <li><a href="#chargebacks">Chargeback Policy</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Money-Back Guarantee -->
+        <section id="money-back-guarantee">
+            <h2>💰 Money-Back Guarantee</h2>
+            <div class="success-box">
+                <h4>✓ 14-Day Money-Back Guarantee</h4>
+                <p>We're confident you'll love PS Technologies. If you're not satisfied within 14 days of your purchase, we'll refund your money—no questions asked.</p>
+            </div>
+
+            <h3>How It Works</h3>
+            <p>You have 14 days from the date of your initial purchase to request a refund. If you're unhappy with the Service for any reason, simply contact our support team to initiate a refund.</p>
+
+            <h3>Eligibility</h3>
+            <p>The 14-day money-back guarantee applies to:</p>
+            <ul>
+                <li>New accounts (first-time purchases only)</li>
+                <li>Monthly and annual plans</li>
+                <li>All pricing tiers</li>
+            </ul>
+        </section>
+
+        <!-- Refund Eligibility -->
+        <section id="refund-eligibility">
+            <h2>Refund Eligibility</h2>
+            <h3>Eligible for Refund</h3>
+            <p>You are eligible for a refund if:</p>
+            <ul>
+                <li>You request a refund within 14 days of purchase</li>
+                <li>Your account is in good standing (no policy violations)</li>
+                <li>You have not exceeded fair usage limits (typically not applicable during trial period)</li>
+                <li>The refund is requested before canceling your subscription</li>
+            </ul>
+
+            <h3>Not Eligible for Refund</h3>
+            <p>You are <strong>not eligible</strong> for a refund if:</p>
+            <ul>
+                <li>14 days have passed since your purchase</li>
+                <li>Your account has been terminated due to policy violations</li>
+                <li>You have previously received a refund for the same subscription period</li>
+                <li>You have used the Service extensively beyond normal trial usage</li>
+                <li>You are requesting a refund for fraud, misrepresentation, or abuse</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>⚠️ Important Note</h4>
+                <p>The 14-day money-back guarantee is limited to one refund per customer. Subsequent refund requests will be evaluated on a case-by-case basis.</p>
+            </div>
+        </section>
+
+        <!-- Refund Process -->
+        <section id="refund-process">
+            <h2>Refund Process</h2>
+            <h3>Step-by-Step</h3>
+            <ol>
+                <li><strong>Contact Support</strong> - Email support@pstechnologies.com with your refund request and account details</li>
+                <li><strong>Verification</strong> - Our team will verify your eligibility based on the criteria above</li>
+                <li><strong>Approval/Denial</strong> - You'll receive a response within 3-5 business days</li>
+                <li><strong>Processing</strong> - If approved, the refund is processed to your original payment method</li>
+                <li><strong>Arrival</strong> - Refunds typically appear within 5-10 business days (varies by bank)</li>
+            </ol>
+
+            <div class="highlight-box">
+                <h4>⏱️ Timeline</h4>
+                <p><strong>Total Processing Time:</strong> Up to 15 business days from request to arrival in your account</p>
+            </div>
+
+            <h3>Refund Method</h3>
+            <p>All refunds are processed to your original payment method. If your original payment method is no longer valid, we'll work with you to arrange an alternative method.</p>
+        </section>
+
+        <!-- Cancellation Policy -->
+        <section id="cancellation">
+            <h2>Cancellation Policy</h2>
+            <h3>How to Cancel</h3>
+            <p>You can cancel your subscription at any time by:</p>
+            <ul>
+                <li>Logging into your account and selecting "Cancel Subscription"</li>
+                <li>Emailing support@pstechnologies.com with your cancellation request</li>
+                <li>Contacting our support team through chat or phone</li>
+            </ul>
+
+            <h3>Cancellation Timing</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Cancellation Request</th>
+                        <th>Effective Date</th>
+                        <th>Final Billing</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>During billing cycle</td>
+                        <td>End of current cycle</td>
+                        <td>No additional charges</td>
+                    </tr>
+                    <tr>
+                        <td>Before renewal date</td>
+                        <td>Renewal would occur</td>
+                        <td>No charge applied</td>
+                    </tr>
+                    <tr>
+                        <td>After payment processed</td>
+                        <td>Immediately or next cycle</td>
+                        <td>Refund may apply (see Refund Eligibility)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Access After Cancellation</h3>
+            <ul>
+                <li>You retain access until the end of your paid billing period</li>
+                <li>After the period ends, your account will be downgraded to free tier (if available) or locked</li>
+                <li>Your data will remain accessible for 30 days after cancellation for download/export purposes</li>
+                <li>After 30 days, your data will be permanently deleted</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>💾 Data Backup Reminder</h4>
+                <p>Export and backup any important data before canceling your account. We cannot restore deleted data after the 30-day retention period.</p>
+            </div>
+        </section>
+
+        <!-- Non-Refundable Items -->
+        <section id="non-refundable">
+            <h2>Non-Refundable Items</h2>
+            <p>The following are <strong>non-refundable</strong>:</p>
+            <ul>
+                <li>Professional services or custom development work</li>
+                <li>Training and onboarding sessions</li>
+                <li>Technical support beyond standard support included in your plan</li>
+                <li>Premium add-ons or integrations</li>
+                <li>Fees for exceeding usage limits or overage charges</li>
+                <li>Charges due to payment failures or late payments</li>
+            </ul>
+
+            <h3>Refund Exclusions</h3>
+            <p>Refunds will not be issued for:</p>
+            <ul>
+                <li>Service dissatisfaction after the 14-day trial period</li>
+                <li>Accounts terminated for violating our Terms of Service</li>
+                <li>Claims related to third-party integrations or services</li>
+                <li>Service interruptions due to user misconfiguration</li>
+            </ul>
+        </section>
+
+        <!-- Partial Refunds -->
+        <section id="partial-refunds">
+            <h2>Partial Refunds</h2>
+            <h3>Pro-Rata Refunds</h3>
+            <p>In certain situations, we may issue partial/pro-rata refunds:</p>
+
+            <h3>When Partial Refunds Apply</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Scenario</th>
+                        <th>Refund Eligibility</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Downgrade within 14 days</td>
+                        <td>Yes</td>
+                        <td>Pro-rata difference</td>
+                    </tr>
+                    <tr>
+                        <td>Plan cancellation with credit remaining</td>
+                        <td>Case-by-case</td>
+                        <td>Remaining balance</td>
+                    </tr>
+                    <tr>
+                        <td>Service unavailability (our fault)</td>
+                        <td>Yes</td>
+                        <td>Proportional credit or refund</td>
+                    </tr>
+                    <tr>
+                        <td>Billing error</td>
+                        <td>Yes</td>
+                        <td>Overcharge amount</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Pro-Rata Calculation</h3>
+            <p>Pro-rata refunds are calculated as: <strong>(Days Remaining / Days in Billing Period) × Total Charge</strong></p>
+        </section>
+
+        <!-- Chargeback Policy -->
+        <section id="chargebacks">
+            <h2>Chargeback & Dispute Policy</h2>
+            <h3>Chargeback Process</h3>
+            <p>If you initiate a chargeback with your financial institution instead of requesting a refund through our official process:</p>
+            <ul>
+                <li>We will dispute the chargeback and defend our position</li>
+                <li>If the chargeback is upheld, your account will be permanently terminated</li>
+                <li>We may pursue legal action to recover chargeback fees (typically $15-$100)</li>
+                <li>You will be blacklisted and unable to create future accounts with us</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>⚠️ Please Use Our Refund Process</h4>
+                <p>Chargebacks damage both parties and should be avoided. Please contact us first to resolve any billing disputes through our official refund process.</p>
+            </div>
+
+            <h3>Dispute Resolution</h3>
+            <p>If you have a billing dispute:</p>
+            <ol>
+                <li>Contact us within 30 days of the charge</li>
+                <li>Provide documentation of your claim</li>
+                <li>Allow 5-7 business days for investigation</li>
+                <li>We'll respond with our resolution</li>
+                <li>If unsatisfied, you may escalate to your financial institution</li>
+            </ol>
+        </section>
+
+        <!-- Contact Us -->
+        <section id="contact">
+            <h2>Need Help?</h2>
+            <p>Have questions about our refund policy? We're here to help!</p>
+            <div class="highlight-box">
+                <h4>📧 Contact Information</h4>
+                <p>
+                    <strong>Email:</strong> support@pstechnologies.com<br>
+                    <strong>Response Time:</strong> 24-48 hours<br>
+                    <strong>Support Hours:</strong> Monday - Friday, 9 AM - 5 PM EST<br>
+                    <strong>Website:</strong> www.pstechnologies.com
+                </p>
+            </div>
+
+            <h3>Provide These Details</h3>
+            <p>When contacting us about refunds, please include:</p>
+            <ul>
+                <li>Your account email</li>
+                <li>Order or subscription ID</li>
+                <li>Date of purchase</li>
+                <li>Reason for refund request</li>
+                <li>Any relevant screenshots or documentation</li>
+            </ul>
+        </section>
+
+        <!-- Final Section -->
+        <section>
+            <h2>Policy Changes</h2>
+            <p>PS Technologies reserves the right to modify this Refund Policy at any time. Changes are effective immediately upon posting to our website. We recommend reviewing this policy periodically for updates.</p>
+            <p>If you have accepted our previous refund policy terms and we make material changes that negatively affect your refund rights, we will provide notice and allow you to cancel your subscription without penalty.</p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 PS Technologies. All rights reserved. | <a href="/terms" style="color: inherit;">Terms & Conditions</a> | <a href="/privacy" style="color: inherit;">Privacy Policy</a></p>
+    </footer>
+</body>
+</html>
