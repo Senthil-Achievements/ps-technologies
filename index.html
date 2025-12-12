@@ -1164,16 +1164,17 @@
         }
         createParticles();
 
-        // Scroll-triggered animations
+        // Scroll-triggered animations (replay on each enter)
         function animateOnScroll() {
             const elements = document.querySelectorAll('.animate-on-scroll');
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Add 'visible' class to trigger CSS animations
                         entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
+                    } else {
+                        // Remove to allow replay when it re-enters viewport
+                        entry.target.classList.remove('visible');
                     }
                 });
             }, {
@@ -1181,9 +1182,7 @@
                 rootMargin: '0px 0px -100px 0px'
             });
 
-            elements.forEach(el => {
-                observer.observe(el);
-            });
+            elements.forEach(el => observer.observe(el));
         }
 
         // Add animation classes to elements
