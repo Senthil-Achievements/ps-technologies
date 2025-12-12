@@ -541,6 +541,155 @@
             z-index: 1;
         }
 
+        /* Animated line separator */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-1), transparent);
+            margin: 40px 0;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        /* Animated counter */
+        .counter {
+            font-size: 32px;
+            font-weight: 800;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: countPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes countPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Gradient text animation */
+        .gradient-text {
+            background: linear-gradient(135deg, #4fd1ff, #7cf2e6, #4fd1ff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Bounce animation */
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .bounce {
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        /* Glow effect */
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 5px var(--accent-1); }
+            50% { box-shadow: 0 0 20px var(--accent-1), 0 0 30px rgba(79, 209, 255, 0.4); }
+        }
+
+        .glow {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Typing effect */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { border-right: 2px solid var(--accent-1); }
+            50% { border-right: 2px solid transparent; }
+        }
+
+        .typing {
+            width: fit-content;
+            overflow: hidden;
+            border-right: 2px solid var(--accent-1);
+            animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+            white-space: nowrap;
+        }
+
+        /* Rotate animation */
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .spin {
+            animation: spin 4s linear infinite;
+        }
+
+        /* Wobble animation */
+        @keyframes wobble {
+            0%, 100% { transform: translateX(0); }
+            15% { transform: translateX(-5px) rotate(-5deg); }
+            30% { transform: translateX(5px) rotate(3deg); }
+            45% { transform: translateX(-5px) rotate(-3deg); }
+            60% { transform: translateX(3px) rotate(2deg); }
+            75% { transform: translateX(-3px) rotate(-1deg); }
+        }
+
+        .wobble {
+            animation: wobble 1s infinite;
+        }
+
+        /* Fade in and scale */
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .fade-in-scale {
+            animation: fadeInScale 0.5s ease-out;
+        }
+
+        /* Border animation */
+        @keyframes borderAnimation {
+            0% { border-color: var(--accent-1); box-shadow: 0 0 10px var(--accent-1); }
+            50% { border-color: var(--accent-2); box-shadow: 0 0 20px var(--accent-2); }
+            100% { border-color: var(--accent-1); box-shadow: 0 0 10px var(--accent-1); }
+        }
+
+        .border-animate {
+            animation: borderAnimation 2s ease-in-out infinite;
+        }
+
+        /* Icon bounce */
+        .icon-bounce {
+            display: inline-block;
+        }
+
+        .icon-bounce:hover {
+            animation: bounce 0.6s ease-in-out;
+        }
+
+        /* Smooth transitions for all interactive elements */
+        * {
+            transition: all 0.3s ease;
+        }
+
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
@@ -609,22 +758,23 @@
         <section id="services">
             <div class="container">
                 <div class="section-header">
-                    <h2>Services</h2>
+                    <h2><span class="gradient-text">Services</span></h2>
                     <p>AI automation, AI-powered ads, and AI-driven apps. We deliver solutions fast.</p>
                 </div>
+                <div class="divider"></div>
                 <div class="grid columns-3">
-                    <div class="card">
-                        <div class="pill"><span class="pill-dot"></span>Automation</div>
+                    <div class="card border-animate">
+                        <div class="pill"><span class="pill-dot bounce"></span>Automation</div>
                         <h3>AI Automation Workflows</h3>
                         <p>Build custom workflows with n8n and Make.com. Integrate APIs, databases, and tools to automate repetitive tasks and save time.</p>
                     </div>
-                    <div class="card">
-                        <div class="pill"><span class="pill-dot"></span>Content</div>
+                    <div class="card border-animate">
+                        <div class="pill"><span class="pill-dot bounce"></span>Content</div>
                         <h3>AI Ad Creative</h3>
                         <p>Generate video ads, copy, and scripts using Google Veo 3 and LLMs. Fast iteration cycles to test and ship campaigns.</p>
                     </div>
-                    <div class="card">
-                        <div class="pill"><span class="pill-dot"></span>Development</div>
+                    <div class="card border-animate">
+                        <div class="pill"><span class="pill-dot bounce"></span>Development</div>
                         <h3>AI-Driven Apps</h3>
                         <p>Build web apps and SaaS products with AI copilots. Use Cursor, GitHub Copilot, and modern stacks for rapid development.</p>
                     </div>
@@ -635,27 +785,28 @@
         <section id="process">
             <div class="container">
                 <div class="section-header">
-                    <h2>How We Work</h2>
+                    <h2><span class="gradient-text">How We Work</span></h2>
                     <p>Fast, focused, and iterative. We scope, build, and ship—then iterate based on real feedback.</p>
                 </div>
+                <div class="divider"></div>
                 <div class="steps">
-                    <div class="step">
-                        <div class="step-num">1</div>
+                    <div class="step border-animate">
+                        <div class="step-num spin">1</div>
                         <h3>Scope</h3>
                         <p>Scope the problem, tools, and outcomes. Pick workflows or features to ship first.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-num">2</div>
+                    <div class="step border-animate">
+                        <div class="step-num spin">2</div>
                         <h3>Build</h3>
                         <p>Implement automations, ads, or app features with rapid iteration and testing.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-num">3</div>
+                    <div class="step border-animate">
+                        <div class="step-num spin">3</div>
                         <h3>Ship</h3>
                         <p>Deploy to production, test with real users, and monitor for issues.</p>
                     </div>
-                    <div class="step">
-                        <div class="step-num">4</div>
+                    <div class="step border-animate">
+                        <div class="step-num spin">4</div>
                         <h3>Iterate</h3>
                         <p>Refine based on feedback, add features, optimize performance, and scale.</p>
                     </div>
@@ -666,16 +817,17 @@
         <section id="stack">
             <div class="container">
                 <div class="section-header">
-                    <h2>Tech Stack</h2>
+                    <h2><span class="gradient-text">Tech Stack</span></h2>
                     <p>The tools and platforms we use to build, ship, and scale.</p>
                 </div>
+                <div class="divider"></div>
                 <div class="stack">
-                    <div class="stack-item"><strong>Automation:</strong> n8n, Make.com</div>
-                    <div class="stack-item"><strong>AI:</strong> GitHub Copilot, Cursor, Google Veo 3</div>
-                    <div class="stack-item"><strong>Frontend:</strong> React, Next.js, Tailwind CSS</div>
-                    <div class="stack-item"><strong>Backend:</strong> Node.js, Python, Express</div>
-                    <div class="stack-item"><strong>Database:</strong> PostgreSQL, MongoDB, Supabase</div>
-                    <div class="stack-item"><strong>Hosting:</strong> Vercel, Netlify, Railway, AWS</div>
+                    <div class="stack-item border-animate"><strong>⚙️ Automation:</strong> n8n, Make.com</div>
+                    <div class="stack-item border-animate"><strong>🤖 AI:</strong> GitHub Copilot, Cursor, Google Veo 3</div>
+                    <div class="stack-item border-animate"><strong>🎨 Frontend:</strong> React, Next.js, Tailwind CSS</div>
+                    <div class="stack-item border-animate"><strong>🔧 Backend:</strong> Node.js, Python, Express</div>
+                    <div class="stack-item border-animate"><strong>💾 Database:</strong> PostgreSQL, MongoDB, Supabase</div>
+                    <div class="stack-item border-animate"><strong>☁️ Hosting:</strong> Vercel, Netlify, Railway, AWS</div>
                 </div>
             </div>
         </section>
@@ -817,20 +969,21 @@
         // Create floating particles in background
         function createParticles() {
             const container = document.body;
-            const particleCount = 20;
+            const particleCount = 30;
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                particle.style.width = Math.random() * 4 + 1 + 'px';
+                particle.style.width = Math.random() * 6 + 1 + 'px';
                 particle.style.height = particle.style.width;
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
                 particle.style.background = Math.random() > 0.5 ? '#4fd1ff' : '#7cf2e6';
-                particle.style.opacity = Math.random() * 0.3 + 0.1;
+                particle.style.opacity = Math.random() * 0.4 + 0.05;
                 particle.style.borderRadius = '50%';
-                particle.style.animation = `float ${Math.random() * 5 + 5}s infinite ease-in-out`;
-                particle.style.animationDelay = Math.random() * 2 + 's';
+                particle.style.animation = `float ${Math.random() * 8 + 5}s infinite ease-in-out`;
+                particle.style.animationDelay = Math.random() * 3 + 's';
+                particle.style.boxShadow = `0 0 ${Math.random() * 15 + 5}px rgba(79, 209, 255, ${Math.random() * 0.5})`;
                 container.appendChild(particle);
             }
         }
@@ -845,13 +998,11 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.animation = entry.target.style.animation;
+                    entry.target.classList.add('fade-in-scale');
                 }
             });
         }, observerOptions);
 
-        // Observe cards and steps
         document.querySelectorAll('.card, .step, .stack-item, .contact-detail').forEach(el => {
             observer.observe(el);
         });
@@ -869,6 +1020,13 @@
         document.querySelectorAll('.btn').forEach(button => {
             button.addEventListener('click', function(e) {
                 const ripple = document.createElement('span');
+                ripple.style.position = 'absolute';
+                ripple.style.pointerEvents = 'none';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'rippleEffect 0.6s ease-out';
+                
                 const rect = this.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
                 const x = e.clientX - rect.left - size / 2;
@@ -877,12 +1035,26 @@
                 ripple.style.width = ripple.style.height = size + 'px';
                 ripple.style.left = x + 'px';
                 ripple.style.top = y + 'px';
-                ripple.classList.add('ripple');
                 this.appendChild(ripple);
 
                 setTimeout(() => ripple.remove(), 600);
             });
         });
+
+        // Add ripple animation keyframes
+        if (!document.querySelector('style[data-ripple]')) {
+            const rippleStyle = document.createElement('style');
+            rippleStyle.setAttribute('data-ripple', 'true');
+            rippleStyle.textContent = `
+                @keyframes rippleEffect {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(rippleStyle);
+        }
 
         // Add hover glow effect to hero card
         const heroCard = document.querySelector('.hero-card');
@@ -891,7 +1063,8 @@
                 const rect = heroCard.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                heroCard.style.boxShadow = `0 0 20px rgba(79, 209, 255, ${0.1 + (x / rect.width) * 0.3})`;
+                const intensity = 0.1 + (x / rect.width) * 0.3;
+                heroCard.style.boxShadow = `0 0 30px rgba(79, 209, 255, ${intensity}), inset 0 0 20px rgba(124, 242, 230, 0.05)`;
             });
 
             heroCard.addEventListener('mouseleave', () => {
@@ -899,13 +1072,28 @@
             });
         }
 
-        // Count up animation for stats (if added later)
+        // Animate numbers on scroll into view
+        const counters = document.querySelectorAll('.counter');
+        counters.forEach(counter => {
+            const target = parseInt(counter.textContent);
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !counter.hasAttribute('data-animated')) {
+                        animateValue(counter, 0, target, 2000);
+                        counter.setAttribute('data-animated', 'true');
+                    }
+                });
+            });
+            observer.observe(counter);
+        });
+
         function animateValue(element, start, end, duration) {
             let startTimestamp = null;
             const step = (timestamp) => {
                 if (!startTimestamp) startTimestamp = timestamp;
                 const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                element.innerText = Math.floor(progress * (end - start) + start);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString();
                 if (progress < 1) {
                     window.requestAnimationFrame(step);
                 }
@@ -919,6 +1107,17 @@
         });
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.5s ease-in';
+
+        // Add mouse cursor glow effect
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle, index) => {
+                const distance = Math.hypot(e.clientX - particle.offsetLeft, e.clientY - particle.offsetTop);
+                if (distance < 100) {
+                    particle.style.opacity = Math.min(0.8, parseFloat(particle.style.opacity) + 0.2);
+                }
+            });
+        });
     </script>
 </body>
 </html>
