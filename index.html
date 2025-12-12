@@ -373,9 +373,9 @@
         }
 
         /* Animations */
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        @keyframes bloat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.5); }
         }
         @keyframes slideInLeft {
             from { opacity: 0; transform: translateX(-30px); }
@@ -1217,7 +1217,7 @@
                 particle.style.background = Math.random() > 0.5 ? '#4fd1ff' : '#7cf2e6';
                 particle.style.opacity = Math.random() * 0.2 + 0.05;
                 particle.style.borderRadius = '50%';
-                particle.style.animation = `float ${Math.random() * 8 + 8}s infinite ease-in-out`;
+                particle.style.animation = `bloat ${Math.random() * 3 + 2}s infinite ease-in-out`;
                 particle.style.animationDelay = Math.random() * 3 + 's';
                 container.appendChild(particle);
             }
