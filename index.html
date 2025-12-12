@@ -49,6 +49,8 @@
             justify-content: space-between;
             gap: 16px;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 101;
         }
 
         .brand {
@@ -538,20 +540,33 @@
         .particle {
             position: fixed;
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
+            top: 0;
+            left: 0;
         }
 
-        /* Animated line separator */
-        .divider {
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-1), transparent);
-            margin: 40px 0;
-            animation: shimmer 3s infinite;
+        main {
+            position: relative;
+            z-index: 2;
         }
 
-        @keyframes shimmer {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 1; }
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(11, 26, 45, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.04);
+        }
+
+        footer {
+            position: relative;
+            z-index: 2;
+        }
+
+        section {
+            position: relative;
+            z-index: 2;
         }
 
         /* Animated counter */
@@ -832,6 +847,7 @@
             position: relative;
             overflow: hidden;
             transition: all 0.3s ease;
+            z-index: 2;
         }
         .btn::before {
             content: '';
