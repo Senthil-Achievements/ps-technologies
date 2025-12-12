@@ -1046,7 +1046,16 @@
                 <div class="contact-card">
                     <h3>Send a project brief</h3>
                     <p style="color: var(--slate-200); margin-bottom: 12px;">Fill out the form below and I'll get back to you within 24 hours. (Note: This opens your email client.)</p>
-                    <form action="mailto:summapa605@gmail.com" method="post" enctype="text/plain">
+                    <form id="contact-form" action="https://formsubmit.co/summapa605@gmail.com" method="POST" novalidate>
+                        <!-- Formsubmit security controls -->
+                        <input type="hidden" name="_subject" value="PS Technologies - New Inquiry">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_autoresponse" value="Thanks for reaching out to PS Technologies. We'll reply shortly.">
+                        <input type="hidden" name="_next" value="https://senthil-achievements.github.io/ps-technologies/#contact">
+                        <!-- Honeypot -->
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+                        <!-- Disable captcha on provider side since we use honeypot and rate-limit -->
+                        <input type="hidden" name="_captcha" value="false">
                         <div>
                             <label>Name *</label>
                             <input type="text" name="name" placeholder="Your name" required>
@@ -1073,7 +1082,7 @@
                             <label>Phone (optional)</label>
                             <input type="tel" name="phone" placeholder="+1 555 555 5555">
                         </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Send Brief</button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;" id="contact-submit">Send Brief</button>
                     </form>
                 </div>
             </div>
@@ -1264,6 +1273,36 @@
 
         // Run animations when DOM is ready
         document.addEventListener('DOMContentLoaded', setupAnimations);
+
+        // Basic client-side guard: rate-limit submissions and validate required fields
+        (function setupSecureForm() {
+            const form = document.getElementById('contact-form');
+            if (!form) return;
+
+            let lastSubmit = 0;
+            form.addEventListener('submit', (e) => {
+                const now = Date.now();
+                // 5s cool-down to reduce spam bursts
+                if (now - lastSubmit < 5000) {
+                    e.preventDefault();
+                    alert('Please wait a moment before submitting again.');
+                    return;
+                }
+
+                // Simple required-field check (HTML5 validation should handle too)
+                const requiredFields = ['name', 'email', 'service', 'details'];
+                for (const field of requiredFields) {
+                    const el = form.elements[field];
+                    if (!el || !el.value || !el.value.trim()) {
+                        e.preventDefault();
+                        alert('Please fill all required fields.');
+                        return;
+                    }
+                }
+
+                lastSubmit = now;
+            });
+        })();
 
         // Parallax effect on hero section (subtle)
         window.addEventListener('scroll', () => {
