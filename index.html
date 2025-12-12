@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PS Technologies | AI Automation, AI Ads, AI Apps</title>
     <meta name="description" content="PS Technologies builds AI automation workflows, AI-powered ads, and AI-driven web/SaaS apps. Solopreneur-led studio using n8n, Make.com, GitHub Copilot, and Google Veo for real results.">
+    <link rel="icon" href="assets/logo.png" type="image/png">
     <style>
         :root {
             --navy-900: #0b1a2d;
@@ -68,9 +69,13 @@
             background: var(--accent-gradient);
             display: grid;
             place-items: center;
-            color: var(--navy-900);
-            font-weight: 800;
-            font-size: 18px;
+            overflow: hidden;
+        }
+        .brand-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         .nav-links {
@@ -867,11 +872,13 @@
         }
 
         @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            section {
+            <nav>
+                <div class="brand">
+                    <div class="brand-icon">
+                        <img src="assets/logo.png" alt="PS Technologies logo">
+                    </div>
+                    <div>PS Technologies</div>
+                </div>
                 padding: 72px 20px;
             }
             .hero {
