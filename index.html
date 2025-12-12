@@ -783,22 +783,21 @@
         /* Animate on scroll */
         .animate-on-scroll {
             opacity: 0;
-            animation-fill-mode: forwards;
         }
 
-        .animate-on-scroll.slide-left {
+        .animate-on-scroll.visible.slide-left {
             animation: slideInFromLeft 0.8s ease-out forwards;
         }
 
-        .animate-on-scroll.slide-right {
+        .animate-on-scroll.visible.slide-right {
             animation: slideInFromRight 0.8s ease-out forwards;
         }
 
-        .animate-on-scroll.slide-up {
+        .animate-on-scroll.visible.slide-up {
             animation: slideInFromBottom 0.8s ease-out forwards;
         }
 
-        .animate-on-scroll.fade {
+        .animate-on-scroll.visible.fade {
             animation: fadeIn 0.8s ease-out forwards;
         }
 
@@ -1231,9 +1230,8 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Trigger animation
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateX(0) translateY(0)';
+                        // Add 'visible' class to trigger CSS animations
+                        entry.target.classList.add('visible');
                         observer.unobserve(entry.target);
                     }
                 });
