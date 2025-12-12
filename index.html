@@ -1203,51 +1203,60 @@
             });
 
             // Only add animations to elements that don't already have animate-on-scroll class
-            // Cards - fade in with stagger
-            document.querySelectorAll('.card:not(.animate-on-scroll)').forEach((card, index) => {
-                card.classList.add('animate-on-scroll', 'fade', `delay-${(index % 6) + 1}`);
+            // Cards - slide up with stagger
+            document.querySelectorAll('.card').forEach((card, index) => {
+                card.classList.remove('fade');
+                card.classList.add('animate-on-scroll', 'slide-up', `delay-${(index % 6) + 1}`);
             });
 
-            // Steps - fade in with stagger
-            document.querySelectorAll('.step:not(.animate-on-scroll)').forEach((step, index) => {
-                step.classList.add('animate-on-scroll', 'fade', `delay-${(index % 4) + 1}`);
+            // Steps - slide up with stagger
+            document.querySelectorAll('.step').forEach((step, index) => {
+                step.classList.remove('fade');
+                step.classList.add('animate-on-scroll', 'slide-up', `delay-${(index % 4) + 1}`);
             });
 
-            // Stack items - fade in with stagger
-            document.querySelectorAll('.stack-item:not(.animate-on-scroll)').forEach((item, index) => {
-                item.classList.add('animate-on-scroll', 'fade', `delay-${(index % 6) + 1}`);
+            // Stack items - slide up with stagger
+            document.querySelectorAll('.stack-item').forEach((item, index) => {
+                item.classList.remove('fade');
+                item.classList.add('animate-on-scroll', 'slide-up', `delay-${(index % 6) + 1}`);
             });
 
-            // Contact details - fade in with stagger
+            // Contact details - slide up with stagger
             document.querySelectorAll('.contact-detail').forEach((detail, index) => {
-                detail.classList.add('animate-on-scroll', 'fade', `delay-${index + 1}`);
+                detail.classList.remove('fade');
+                detail.classList.add('animate-on-scroll', 'slide-up', `delay-${index + 1}`);
             });
 
-            // Badges - fade in with stagger
+            // Badges - slide up with stagger
             document.querySelectorAll('.badge').forEach((badge, index) => {
-                badge.classList.add('animate-on-scroll', 'fade', `delay-${(index % 4) + 1}`);
+                badge.classList.remove('fade');
+                badge.classList.add('animate-on-scroll', 'slide-up', `delay-${(index % 4) + 1}`);
             });
 
-            // Buttons - fade in
+            // Buttons - slide up
             document.querySelectorAll('.btn').forEach(btn => {
-                btn.classList.add('animate-on-scroll', 'fade');
+                btn.classList.remove('fade');
+                btn.classList.add('animate-on-scroll', 'slide-up');
             });
 
-            // Contact card - fade in
+            // Contact card - slide up
             const contactCard = document.querySelector('.contact-card');
             if (contactCard) {
-                contactCard.classList.add('animate-on-scroll', 'fade');
+                contactCard.classList.remove('fade');
+                contactCard.classList.add('animate-on-scroll', 'slide-up');
             }
 
-            // CTA section
+            // CTA section - slide up
             const ctaSection = document.querySelector('.cta');
             if (ctaSection) {
-                ctaSection.classList.add('animate-on-scroll', 'fade');
+                ctaSection.classList.remove('fade');
+                ctaSection.classList.add('animate-on-scroll', 'slide-up');
             }
 
-            // Dividers
+            // Dividers - slide up
             document.querySelectorAll('.divider').forEach(divider => {
-                divider.classList.add('animate-on-scroll', 'fade');
+                divider.classList.remove('fade');
+                divider.classList.add('animate-on-scroll', 'slide-up');
             });
 
             animateOnScroll();
