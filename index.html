@@ -686,8 +686,203 @@
         }
 
         /* Smooth transitions for all interactive elements */
-        * {
+        a, button {
             transition: all 0.3s ease;
+        }
+
+        /* Remove overly aggressive animations */
+        .particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Scroll-triggered animations */
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Animate on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .animate-on-scroll.slide-left {
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+
+        .animate-on-scroll.slide-right {
+            animation: slideInFromRight 0.8s ease-out forwards;
+        }
+
+        .animate-on-scroll.slide-up {
+            animation: slideInFromBottom 0.8s ease-out forwards;
+        }
+
+        .animate-on-scroll.fade {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        /* Stagger animations */
+        .animate-on-scroll.delay-1 { animation-delay: 0.1s; }
+        .animate-on-scroll.delay-2 { animation-delay: 0.2s; }
+        .animate-on-scroll.delay-3 { animation-delay: 0.3s; }
+        .animate-on-scroll.delay-4 { animation-delay: 0.4s; }
+        .animate-on-scroll.delay-5 { animation-delay: 0.5s; }
+        .animate-on-scroll.delay-6 { animation-delay: 0.6s; }
+
+        /* Subtle hover effects */
+        .card {
+            background: var(--navy-800);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: rgba(79, 209, 255, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 40px rgba(79, 209, 255, 0.1);
+        }
+
+        .step {
+            background: var(--navy-800);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 18px;
+            transition: all 0.3s ease;
+        }
+        .step:hover {
+            border-color: rgba(79, 209, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(79, 209, 255, 0.08);
+        }
+
+        .stack-item {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 12px;
+            padding: 14px;
+            color: var(--slate-100);
+            transition: all 0.3s ease;
+        }
+        .stack-item:hover {
+            background: rgba(79, 209, 255, 0.08);
+            border-color: rgba(79, 209, 255, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(79, 209, 255, 0.1);
+        }
+
+        .badge {
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.08);
+            color: var(--slate-100);
+            border: 1px solid rgba(255,255,255,0.10);
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        .badge:hover {
+            background: rgba(79, 209, 255, 0.15);
+            border-color: rgba(79, 209, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+            z-index: 0;
+        }
+        .btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .contact-detail {
+            background: rgba(255,255,255,0.04);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(255,255,255,0.06);
+            transition: all 0.3s ease;
+        }
+        .contact-detail:hover {
+            border-color: rgba(79, 209, 255, 0.2);
+            background: rgba(79, 209, 255, 0.06);
+            transform: translateY(-4px);
+        }
+
+        .hero-card {
+            animation: slideInFromRight 0.8s ease-out;
+        }
+        .hero-card {
+            transition: all 0.4s ease;
+        }
+        .hero-card:hover {
+            box-shadow: 0 20px 50px rgba(79, 209, 255, 0.15);
+        }
+
+        h1, h2, h3 {
+            transition: all 0.4s ease;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-1), transparent);
+            margin: 40px 0;
+            opacity: 0.5;
         }
 
         @media (max-width: 768px) {
@@ -969,65 +1164,134 @@
         // Create floating particles in background
         function createParticles() {
             const container = document.body;
-            const particleCount = 30;
+            const particleCount = 15;
 
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                particle.style.width = Math.random() * 6 + 1 + 'px';
+                particle.style.width = Math.random() * 3 + 1 + 'px';
                 particle.style.height = particle.style.width;
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.top = Math.random() * 100 + '%';
                 particle.style.background = Math.random() > 0.5 ? '#4fd1ff' : '#7cf2e6';
-                particle.style.opacity = Math.random() * 0.4 + 0.05;
+                particle.style.opacity = Math.random() * 0.2 + 0.05;
                 particle.style.borderRadius = '50%';
-                particle.style.animation = `float ${Math.random() * 8 + 5}s infinite ease-in-out`;
+                particle.style.animation = `float ${Math.random() * 8 + 8}s infinite ease-in-out`;
                 particle.style.animationDelay = Math.random() * 3 + 's';
-                particle.style.boxShadow = `0 0 ${Math.random() * 15 + 5}px rgba(79, 209, 255, ${Math.random() * 0.5})`;
                 container.appendChild(particle);
             }
         }
         createParticles();
 
-        // Intersection Observer for scroll animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-scale');
-                }
+        // Scroll-triggered animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.card, .step, .stack-item, .contact-detail').forEach(el => {
-            observer.observe(el);
-        });
+            elements.forEach(el => {
+                observer.observe(el);
+            });
+        }
 
-        // Parallax effect on hero section
+        // Add animation classes to elements
+        function setupAnimations() {
+            // Hero section - fade in left/right
+            const heroContent = document.querySelector('.hero-grid > div:first-child');
+            const heroCard = document.querySelector('.hero-card');
+            if (heroContent) {
+                heroContent.classList.add('animate-on-scroll', 'slide-left');
+            }
+            if (heroCard) {
+                heroCard.classList.add('animate-on-scroll', 'slide-right');
+            }
+
+            // Section headers
+            document.querySelectorAll('.section-header').forEach(header => {
+                header.classList.add('animate-on-scroll', 'fade');
+            });
+
+            // Cards - staggered slide up
+            document.querySelectorAll('.card').forEach((card, index) => {
+                card.classList.add('animate-on-scroll', 'slide-up', `delay-${(index % 6) + 1}`);
+            });
+
+            // Steps - staggered slide up
+            document.querySelectorAll('.step').forEach((step, index) => {
+                step.classList.add('animate-on-scroll', 'slide-up', `delay-${(index % 4) + 1}`);
+            });
+
+            // Stack items - staggered slide up
+            document.querySelectorAll('.stack-item').forEach((item, index) => {
+                item.classList.add('animate-on-scroll', 'slide-up', `delay-${(index % 6) + 1}`);
+            });
+
+            // Contact details - staggered slide up
+            document.querySelectorAll('.contact-detail').forEach((detail, index) => {
+                detail.classList.add('animate-on-scroll', 'slide-up', `delay-${index + 1}`);
+            });
+
+            // Badges - staggered slide up
+            document.querySelectorAll('.badge').forEach((badge, index) => {
+                badge.classList.add('animate-on-scroll', 'slide-up', `delay-${(index % 4) + 1}`);
+            });
+
+            // Buttons - slide up
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.classList.add('animate-on-scroll', 'slide-up');
+            });
+
+            // Contact card
+            const contactCard = document.querySelector('.contact-card');
+            if (contactCard) {
+                contactCard.classList.add('animate-on-scroll', 'slide-up');
+            }
+
+            // CTA section
+            const ctaSection = document.querySelector('.cta');
+            if (ctaSection) {
+                ctaSection.classList.add('animate-on-scroll', 'fade');
+            }
+
+            animateOnScroll();
+        }
+
+        // Run animations when DOM is ready
+        document.addEventListener('DOMContentLoaded', setupAnimations);
+
+        // Parallax effect on hero section (subtle)
         window.addEventListener('scroll', () => {
             const hero = document.querySelector('.hero');
             if (hero) {
                 const scrollPosition = window.scrollY;
-                hero.style.transform = `translateY(${scrollPosition * 0.5}px)`;
+                if (scrollPosition < 800) {
+                    hero.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+                }
             }
         });
 
         // Interactive button ripple effect
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function(e) {
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.btn')) {
+                const button = e.target.closest('.btn');
                 const ripple = document.createElement('span');
                 ripple.style.position = 'absolute';
                 ripple.style.pointerEvents = 'none';
                 ripple.style.borderRadius = '50%';
-                ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-                ripple.style.transform = 'scale(0)';
+                ripple.style.background = 'rgba(255, 255, 255, 0.5)';
                 ripple.style.animation = 'rippleEffect 0.6s ease-out';
                 
-                const rect = this.getBoundingClientRect();
+                const rect = button.getBoundingClientRect();
                 const size = Math.max(rect.width, rect.height);
                 const x = e.clientX - rect.left - size / 2;
                 const y = e.clientY - rect.top - size / 2;
@@ -1035,13 +1299,13 @@
                 ripple.style.width = ripple.style.height = size + 'px';
                 ripple.style.left = x + 'px';
                 ripple.style.top = y + 'px';
-                this.appendChild(ripple);
+                button.appendChild(ripple);
 
                 setTimeout(() => ripple.remove(), 600);
-            });
+            }
         });
 
-        // Add ripple animation keyframes
+        // Add ripple animation keyframes if not exists
         if (!document.querySelector('style[data-ripple]')) {
             const rippleStyle = document.createElement('style');
             rippleStyle.setAttribute('data-ripple', 'true');
@@ -1056,15 +1320,15 @@
             document.head.appendChild(rippleStyle);
         }
 
-        // Add hover glow effect to hero card
+        // Subtle hero card glow on hover
         const heroCard = document.querySelector('.hero-card');
         if (heroCard) {
             heroCard.addEventListener('mousemove', (e) => {
                 const rect = heroCard.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                const intensity = 0.1 + (x / rect.width) * 0.3;
-                heroCard.style.boxShadow = `0 0 30px rgba(79, 209, 255, ${intensity}), inset 0 0 20px rgba(124, 242, 230, 0.05)`;
+                const intensity = 0.05 + (x / rect.width) * 0.1;
+                heroCard.style.boxShadow = `0 0 20px rgba(79, 209, 255, ${intensity})`;
             });
 
             heroCard.addEventListener('mouseleave', () => {
@@ -1072,52 +1336,12 @@
             });
         }
 
-        // Animate numbers on scroll into view
-        const counters = document.querySelectorAll('.counter');
-        counters.forEach(counter => {
-            const target = parseInt(counter.textContent);
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !counter.hasAttribute('data-animated')) {
-                        animateValue(counter, 0, target, 2000);
-                        counter.setAttribute('data-animated', 'true');
-                    }
-                });
-            });
-            observer.observe(counter);
-        });
-
-        function animateValue(element, start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const value = Math.floor(progress * (end - start) + start);
-                element.textContent = value.toLocaleString();
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
         // Fade in on page load
         window.addEventListener('load', () => {
             document.body.style.opacity = '1';
         });
         document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.5s ease-in';
-
-        // Add mouse cursor glow effect
-        document.addEventListener('mousemove', (e) => {
-            const particles = document.querySelectorAll('.particle');
-            particles.forEach((particle, index) => {
-                const distance = Math.hypot(e.clientX - particle.offsetLeft, e.clientY - particle.offsetTop);
-                if (distance < 100) {
-                    particle.style.opacity = Math.min(0.8, parseFloat(particle.style.opacity) + 0.2);
-                }
-            });
-        });
+        document.body.style.transition = 'opacity 0.3s ease-in';
     </script>
 </body>
 </html>
