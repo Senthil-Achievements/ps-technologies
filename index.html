@@ -705,12 +705,37 @@
             transition: all 0.3s ease;
         }
 
-        /* Remove overly aggressive animations */
+        /* Floating particles - background only */
         .particle {
             position: fixed;
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
+            top: 0;
+            left: 0;
         }
+
+        /* Scroll-triggered animations for sections */
+        section {
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: sectionFadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes sectionFadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        section:nth-of-type(1) { animation-delay: 0s; }
+        section:nth-of-type(2) { animation-delay: 0.2s; }
+        section:nth-of-type(3) { animation-delay: 0.2s; }
+        section:nth-of-type(4) { animation-delay: 0.2s; }
+        section:nth-of-type(5) { animation-delay: 0.2s; }
+        section:nth-of-type(6) { animation-delay: 0.2s; }
 
         /* Scroll-triggered animations */
         @keyframes slideInFromLeft {
@@ -1206,13 +1231,15 @@
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
+                        // Trigger animation
                         entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0) translateY(0)';
                         observer.unobserve(entry.target);
                     }
                 });
             }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                threshold: 0.05,
+                rootMargin: '0px 0px -100px 0px'
             });
 
             elements.forEach(el => {
@@ -1278,6 +1305,11 @@
             if (ctaSection) {
                 ctaSection.classList.add('animate-on-scroll', 'fade');
             }
+
+            // Dividers
+            document.querySelectorAll('.divider').forEach(divider => {
+                divider.classList.add('animate-on-scroll', 'fade');
+            });
 
             animateOnScroll();
         }
