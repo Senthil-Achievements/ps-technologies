@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>PS Technologies Updates</title>
+  <id>https://senthil-achievements.github.io/ps-technologies/</id>
+  <link href="https://senthil-achievements.github.io/ps-technologies/" rel="alternate"/>
+  <link href="https://senthil-achievements.github.io/ps-technologies/feed.xml" rel="self"/>
+  <updated>2025-12-14T00:00:00Z</updated>
+  <author>
+    <name>PS Technologies</name>
+    <email>summapa605@gmail.com</email>
+  </author>
+
+  <entry>
+    <title>Home</title>
+    <id>https://senthil-achievements.github.io/ps-technologies/</id>
+    <link href="https://senthil-achievements.github.io/ps-technologies/"/>
+    <updated>2025-12-14T00:00:00Z</updated>
+    <summary>AI automation, AI ads, and AI apps from PS Technologies.</summary>
+  </entry>
+
+  <entry>
+    <title>Terms & Conditions</title>
+    <id>https://senthil-achievements.github.io/ps-technologies/terms-conditions.html</id>
+    <link href="https://senthil-achievements.github.io/ps-technologies/terms-conditions.html"/>
+    <updated>2025-12-14T00:00:00Z</updated>
+    <summary>Terms of service and usage policies for PS Technologies.</summary>
+  </entry>
+
+  <entry>
+    <title>Refund Policy</title>
+    <id>https://senthil-achievements.github.io/ps-technologies/refund-policy.html</id>
+    <link href="https://senthil-achievements.github.io/ps-technologies/refund-policy.html"/>
+    <updated>2025-12-14T00:00:00Z</updated>
+    <summary>Refund terms, cancellation process, and money-back guarantee.</summary>
+  </entry>
+</feed>
